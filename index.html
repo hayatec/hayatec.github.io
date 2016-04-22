@@ -1,18 +1,186 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Sample</title>
-    <!-- BootstrapのCSS読み込み -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- jQuery読み込み -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- BootstrapのJS読み込み -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>家具を探す君（仮）| hayatec</title>
+
+  <!-- BootstrapのCSS読み込み -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- jQuery読み込み -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- BootstrapのJS読み込み -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!--font-awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  <script>
+  $(function(){
+    // #で始まるアンカーをクリックした場合に処理
+    $('a[href^=#]').click(function() {
+    // スクロールの速度
+    var speed = 400; // ミリ秒
+    // アンカーの値取得
+    var href= $(this).attr("href");
+    // 移動先を取得
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    // 移動先を数値で取得
+    var position = target.offset().top;
+    // スムーススクロール
+    $('body,html').animate({scrollTop:position}, speed, 'swing');
+    return false;
+    });
+  });
+  </script>
+
+  <style>
+
+    html {
+      position: relative;
+      min-height: 100%;
+      font-family: YuGothic, "游ゴシック", "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+      font-size: 14px;
+    }
+
+    body {
+      margin-bottom: 30px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      /* Set the fixed height of the footer here */
+      height: 30px;
+      background-color: #5c554b;
+    }
+
+    .navbar { 
+      border-radius: 0;
+      background-color: #5c554b;
+      font-weight: bold;
+      margin-bottom: 100px;
+    }
+
+    .row {
+      margin-bottom: 50px;
+    }
+
+    .icon {
+      text-align: center;
+    }
+
+    .icon .glyphicon {
+      margin-bottom: 10px;
+      font-size: 40px;
+      color: #777;
+    }
+
+
+    h1{
+      text-align: center;
+      margin-top: 15px;
+
+    }
+
+    .hr-default {
+      border: 0;
+      height: 1px;
+      background: #333;
+      background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+      background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+      background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+      background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+    }
+
+    /* Style for contents*/
+
+    .page-header{
+      margin-top: 60px;
+    }
+
+    .page-header .img-responsive-overwrite{
+      margin: 0 auto;
+    }
+
+    .info-author img {
+      height: 200px;
+      width: 200px;
+    }
+  </style>
   </head>
+
   <body>
-    <h1>Hello, world!</h1>
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">hayatec</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Home</a></li>
+          <li><a href="#product">Product</a></li>
+          <li><a href="#author">Author</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <!-- page contents -->
+  <div class="container">
+
+    <div class="row page-header">
+      <div class="header-title">
+        <h1>家具を探す君（仮）</h1>
+      </div>
+      <div class="header-image">
+        <img src="./header.jpg" class="img-responsive img-responsive-overwrite " alt="Header Image">
+      </div>
+    </div><!-- page-header -->
+
+    <div class="row info-product" id="product">
+      <div class="col-sm-12">
+        <h2><span><i class="glyphicon glyphicon-question-sign hidden-xs"></i></span>家具を探す君（仮）とは？</h2>
+        <div class="caption">その隙間にピッタリの家具を。縦×横×奥行きで家具を検索。</br>ジャストサイズの家具を見つけるサービスです。</div>
+      </div>
+    </div><!-- info-product -->
+
+    <hr class="hr-default">
+
+    <div class="row info-author" id="author">
+      <div class="col-sm-12">
+        <h2><span><i class="glyphicon glyphicon-user hidden-xs"></i></span>誰が作ったの?</h2>
+        <div class="image-author col-sm-3 hidden-xs">
+          <span aria-hidden="true"> <img src="./avatar.jpg" class="img-responsive img-responsive-overwrite" alt="author"></span>
+        </div>
+        <div class="caption col-sm-9">
+          <table class="table">
+            <tr><th>名前</th><td>hayatec</td></tr>
+            <tr><th>一言</th><td>hayatec</td></tr>
+            <tr><th>contact</th><td><a href="https://github.com/hayatec"　target="_blank" title="hayatecのGitHubページを開く">
+              <i class="fa fa-github-square" style="color: black;font-size:2em"></i></a>Githubからお問い合わせください。</td></tr>
+            </table>
+          </div>
+        </div>
+      </div><!-- info-author -->
+    </div><!-- container -->
+
+  <footer class="footer text-right">
+    <div class="container">
+      <span class="text-muted">© 2016 hayatec</span>
+    </div>
+  </footer><!-- footer -->
+
+  <!-- Place this tag right after the last button or just before your close body tag. -->
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
